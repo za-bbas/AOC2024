@@ -7,19 +7,13 @@ for line in open("input.txt", "r"):
     right.append(int(line.split()[1]))
 
 def partOne():
-    sum = 0
     left.sort()
     right.sort()
-    for i in range(len(left)):
-        sum += abs(left[i]-right[i])
-    print(sum)
+    print(sum((abs(left[i]-right[i]) for i in range(len(left))))
 
 def partTwo():
-    similarity = 0
     frequency = Counter(right)
-    for num in left:
-        similarity += num * frequency[num]
-    print(similarity)
+    print(sum(num*frequency[num] for num in left))
 
 partOne()
 partTwo()
