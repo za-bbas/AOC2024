@@ -2,7 +2,7 @@ from collections import Counter
 
 left = []
 right = []
-for line in open("input.txt", "r"):
+for line in open("input1.txt", "r"):
     left.append(int(line.split()[0]))
     right.append(int(line.split()[1]))
 
