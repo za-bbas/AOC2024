@@ -1,4 +1,4 @@
-# how on earth does this shit work??
+# how on earth does this work??
 g, m = open('input4.txt').read(), 'SAMX'
 
 for f, l, s in (sum, 4, (1,140,141,142)), (all, 3, (140,142)):
