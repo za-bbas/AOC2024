@@ -1,6 +1,6 @@
 import re
 
-line = ''.join([line.strip() for line in open("input.txt","r")])
+line = ''.join([line.strip() for line in open("input.txt3","r")])
 pattern = r"mul\((\d+),(\d+)\)"
 
 def partOne():

@@ -1,4 +1,4 @@
-lines = [line.strip() for line in open("input.txt", "r")]
+lines = [line.strip() for line in open("input2.txt", "r")]
 
 def partOne():
     safe = 0
