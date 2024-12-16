@@ -33,5 +33,7 @@ def partOne():
         valid = True
     print(total)
 
+def partTwo():
+    
 
 partOne()
