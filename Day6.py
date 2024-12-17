@@ -1,4 +1,3 @@
-import time
 lines = [list(line.strip()) for line in open("input6.txt","r")]
 directions = [
     [-1, 0], # up
@@ -11,6 +10,7 @@ for i in range(len(lines)):
         if lines[i][j] == "^":
             point = (i,j)
             break
+
 def partOne():
     r, c = point
     d = 0
@@ -29,11 +29,6 @@ def partOne():
     print(len(visited))
 
 def partTwo():
-    """
-    IDEA: check every possible position on the board (ik...) and see if the guard ends in a loop
-    Check for loops by seeing if the guard has previously been in this position going in the same direction
-    """
-    # TODO: Implement solution
     visited = set()
     valid = set()
     d = 0 
@@ -62,9 +57,4 @@ def partTwo():
     print(len(valid))
 
 partOne()
-start_time = time.time()
-partTwo()
-end_time = time.time()  # Record the end time
-elapsed_time = end_time - start_time  # Calculate elapsed time
-
-print(f"Program executed in {elapsed_time:.4f} seconds.")
+partTwo() #nearly a minute to run lol
