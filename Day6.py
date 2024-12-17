@@ -29,8 +29,8 @@ def partOne():
 
 def partTwo():
     """
-    IDEA: check every possible position on the board (ik...) and see if the gaurd ends in a loop
-    Check for loops by seeing if the gaurd has previously been in this position going in the same direction
+    IDEA: check every possible position on the board (ik...) and see if the guard ends in a loop
+    Check for loops by seeing if the guard has previously been in this position going in the same direction
     """
     # TODO: Implement solution
 
