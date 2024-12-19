@@ -1,3 +1,6 @@
+#TODO: optimize this solution, maybe by iterating instead of recursion! :)
+# One idea I have is to just add all the possible things to a list and then check if the target is in that list somewhere
+# Although I think this seems to have holes I'd have to plug at implementation...
 lines = [line.strip() for line in open("input7.txt", "r")]
 
 def partOne():
