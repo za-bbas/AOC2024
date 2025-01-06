@@ -22,6 +22,7 @@ def partOne():
     print(total)
 
 def partTwo():
+    #not 100% on how this works...I took some 'insipration' from someone online but hey it works
     L=[[],[]]
     pos = 0
     for idx,length in enumerate(map(int, line)):
