@@ -1,3 +1,4 @@
+
 with open("input9.txt", "r") as f:
     line = f.readline().strip()
 
@@ -21,27 +22,18 @@ def partOne():
     print(total)
 
 def partTwo():
-    """
-    Basic idea is simple:
-    iterate over files backwards (rtl), for each file try to find leftmost big enough free span by iterating spans forward (ltr).
-
-    possible optimizations:
-    1. Observation: if we couldn't find free span for file span of size N - it means that it won't be possible in future too
-    There are only 9 possible file sizes (1-9), so it makes sense to maintain simple array of flags per size. 
-    If wee see in future file span of size N - we just skip it.
-    2.follows from first one: if all nine possible file sizes are impossible to move, we are done with whole defragmentation and can bail out early.
-    3. Small optimization: we can calculate checksum of file span immediatelly after processing it.
-    """
-    # TODO: implement above idea
-    # files = [int(line[i]) for i in range(0, len(line), 2)]
-    # spans = [int(line[i]) for i in range(1, len(line), 2)]
-    # for i in range(len(files)-1, 0, -1):
-    #     for j in range(len(spans)):
-    #         if spans[i]>=files[i]:
-    #             spans[i]-=files[i]
-    #             final 
-    # The above code wont work because it is neglecting that we can move files into a span that was already partially filled
-    # A way to solve this could be to keep track of possible indices and values, so that we cna just sort it in the end
+    L=[[],[]]
+    pos = 0
+    for idx,length in enumerate(map(int, line)):
+        L[idx%2].append((pos,length))                 #L[0]: data, L[1]: free space
+        pos += length
+    for i,(dpos,dlen) in list(enumerate(L[0]))[::-1]: # look at data starting right
+        for j,(spos, slen) in enumerate(L[1]):        # look at free space starting left
+            if spos < dpos and slen >= dlen:          # can move data to free space
+                L[0][i] = (spos, dlen)
+                L[1][j] = (spos + dlen, slen - dlen)  # may create 0-length free space block, but that's ok
+                break
+    print(sum(v*dlen*(2*dpos + dlen - 1) for v, (dpos, dlen) in enumerate(L[0]))//2)
 
 
 partOne()
